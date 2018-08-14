@@ -52,16 +52,18 @@ if (($handle = fopen("1.csv", "r")) !== FALSE) {
 	    $row++;
 	    if ($row < 5379)
 	    {
-	    	$each = array();
-
 	        $str = utf8_encode($data[0]);
 	        $str = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
 	        echo "<p> $row: $str</p>\n";
-	        $each["Composer"] = $str;
-	        $each["Genre"] = $data[1];
-	        $each["createdAt"] = "2018-08-14T02:55:04.226Z";
-	        $each["updatedAt"] = "2018-08-14T02:55:04.226Z";
-	        array_push($result["results"], $each);
+	        if ($str)
+	        {
+	        	$each = array();
+	        	$each["Composer"] = $str;
+	        	$each["Genre"] = $data[1];
+		        $each["createdAt"] = "2018-08-14T02:55:04.226Z";
+		        $each["updatedAt"] = "2018-08-14T02:55:04.226Z";
+		        array_push($result["results"], $each);
+	        }
 	    }
  	}
 	fclose($handle);
