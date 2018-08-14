@@ -93,7 +93,6 @@ if (($handle = fopen("1.csv", "r")) !== FALSE) {
  	}
 	fclose($handle);
 	$json = json_encode($result, 0, 5);
-	var_dump($json);
 	file_put_contents("cg.json", $json);
 }
 ?>
