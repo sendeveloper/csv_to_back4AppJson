@@ -56,6 +56,7 @@ if (($handle = fopen("1.csv", "r")) !== FALSE) {
 
 	        $str = utf8_encode($data[0]);
 	        $str = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+	        echo "<p> $row: $str</p>\n";
 	        $each["Composer"] = $str;
 	        $each["Genre"] = $data[1];
 	        $each["createdAt"] = "2018-08-14T02:55:04.226Z";
